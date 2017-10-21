@@ -4,7 +4,7 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppCompon ent
       ],
     }).compileComponents();
   }));
@@ -18,6 +18,14 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('app');
   }));
+
+  it(`should has as contact 'angular'`, async(() => {
+  const fixture = TestBed.createComponent(AppComponent);
+  const contact = fixture.debugElement.componentInstance;
+  expect(contact.contact).toEqual('angular');
+
+  }));
+
   it('should render title in a h1 tag', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
