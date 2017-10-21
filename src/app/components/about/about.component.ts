@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from '../../services/data.service';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+ about:string;
+ isShow:boolean=false;
+ posts:Post[];
+  constructor(private data:DataService) { }
 
   ngOnInit() {
+  this.about = 'dnb is a norway based bank.';
+   this.data.getPosts().subscribe((posts) => {
+ // console.log(posts);
+   this.posts = posts;
+
+  });
   }
 
+ show(){
+ this.isShow = !this.isShow;
+ }
+}
+interface Post{
+	id:number,
+	title:string,
+	body:string,
+	userId:number
 }

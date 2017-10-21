@@ -1,1 +1,9 @@
 <h4>Hello world </h4>
+<p>{{about}}</p>
+<h1>Posts</h1>
+<button (click)="show()">Show</button>
+<div *ngIf=isShow>
+<div *ngFor="let post of posts" >
+		
+		<p>{{post.body}}</p>
+</div></div>
